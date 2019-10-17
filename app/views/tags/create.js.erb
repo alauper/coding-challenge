@@ -1,0 +1,4 @@
+$('#tags_form')[0].reset();
+<% html = raw j render(partial: '/posts/tagging', locals: { tagging: @tagging, post: @post }).gsub("\n", '') %>
+$('#deletable_tags').append('<%= html %>');
+$('#tags').append('<span id="clickable_tag_<%= @tagging.id %>"><%= @tagging.tag.name %>, </span>');

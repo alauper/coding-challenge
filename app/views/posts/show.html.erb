@@ -1,1 +1,37 @@
-<!-- View for showing a single `Post` -->
+<div id='clickable_tags'>
+  <span id='tags'>
+    <span class="fa fa-tags"></span>
+    <% @post.taggings.each do |t| %>
+      <span id='clickable_tag_<%= t.id %>'><%= t.tag.name %>,</span>
+    <% end %>
+  </span>
+  <% link_text = @post.taggings.empty? ? 'Add tags' : 'Edit tags' %>
+  <%= link_to link_text, '#', id: 'edit_tag', style: 'color:grey;' %>
+</div>
+
+<div id='edit_tags' style='display:none;'>
+  <div id='deletable_tags'>
+    <%= render partial: 'tagging', collection: @post.taggings, locals: { post: @post } %>
+  </div>
+  <%= form_tag post_tags_path(@post), id: 'tags_form', remote: true do %>
+    <div class='form-group' style='width:250px;'>
+      <%= text_field_tag :tag_name, '', class: 'form-control' %>
+    </div>
+    <%= submit_tag 'Add tag', class: 'btn btn-outline-primary btn-sm' %> or <%= link_to 'close', '#' %>
+  <% end %>
+</div>
+
+<h1><%= @post.title %></h1>
+
+<div><%= @post.body %></div>
+
+<div class="float-right">
+  <%= link_to 'Delete Post', post_path(@post), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' } %>
+</div><br /><br />
+
+<hr />
+
+<h1>Comments</h1>
+<%= render partial: '/comments/new', locals: { post: @post } %><br />
+
+<%= render partial: '/comments/show', collection: @post.comments, as: 'comment' %>

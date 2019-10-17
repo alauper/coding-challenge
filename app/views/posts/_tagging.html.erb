@@ -1,0 +1,6 @@
+<span id='<%= "tagging_#{tagging.id}" %>' class='deletable_tag'>
+  <%= tagging.tag.name %>
+  <%= link_to post_tag_path(post, tagging), remote: true, method: :delete do %>
+    <span class="fa fa-trash"></span>
+  <% end %>
+</span>

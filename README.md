@@ -1,6 +1,6 @@
 # CareerPlug Coding Challenge
 
-This is the CareerPlug coding challenge. Bellow you will find a set of instructions on how to complete and submit the project. If you have any questions at all please submit an issue or contact us directly!
+This is the CareerPlug coding challenge. Below you will find a set of instructions on how to complete and submit the project. If you have any questions at all please submit an issue or contact us directly!
 
 ## Introduction
 This challenge will be completed using the starter Ruby on Rails project found in this repository. To get started, fork the repository to your Github account. Once you have completed the challenge and are ready for it to be reviewed, please put in a pull request to the base repository.

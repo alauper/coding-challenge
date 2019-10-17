@@ -1,0 +1,11 @@
+<%= form_for Comment.new do |f| %>
+  <%= f.hidden_field :post_id, value: post.id %>
+
+  <div class='form-group'>
+    <%= f.text_area :body, class: 'form-control' %>
+  </div>
+
+  <div class="float-right">
+    <%= submit_tag 'Post Comment', class: 'btn btn-primary' %>
+  </div><br /><br />
+<% end %>
